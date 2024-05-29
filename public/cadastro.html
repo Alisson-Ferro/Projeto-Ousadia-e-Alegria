@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/6° Cadastro.css">
+    <link rel="shortcut icon" href="./assets/icon/bola-de-futebol-2.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Ousadia e Alegria</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="rightCadastro">
+                <img src="./assets/img/Ney🥱-Photoroom (2) 1.png" alt="">
+            </div>
+            <div class="leftCadastro">
+                <div class="box">
+                    <div class="boxCadastro">
+                        <div class="logoNey">
+                            <img src="./assets/img/Imagem do WhatsApp de 2024-05-18 à(s) 00.47.10_68d60645.png" alt="">
+                        </div>
+                        <div class="tituloCadastro">
+                            <h2>CADASTRE-SE AQUI</h2>
+                        </div>
+                        <div id="exibir" style="color: red;"></div>
+                        <div class="nomeCadastro">
+                            <label for="">
+                                <input id="input_nome" placeholder="NOME">
+                            </label>
+                        </div>
+                        <div class="emailCadastro">
+                            <label for="">
+                                <input id="input_email" placeholder="EMAIL">
+                            </label>
+                        </div>
+                        <div class="senhaCadastro">
+                            <label for="">
+                                <input id="input_senha" type="password" required placeholder="SENHA">
+                            </label>
+                        </div>
+                        <div class="confirmarSenhaCadastro">
+                            <label for="">
+                                <input id="input_confirmar" type="password" required placeholder="CONFIRMAR SENHA">
+                            </label>
+                        </div>
+                        <div class="BoxCadastrar">
+                            <button onclick="cadastrar()" type="submit">Cadastrar</button>
+                        </div>
+                        <div class="BoxcadastroVoltar">
+                            <a href="./index.html"><img src="./assets/img/botao-de-inicio (1) 1.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="times">
+                        <div class="linhaUm"></div>
+                        <div class="santosMini">
+                            <img src="./assets/img/Santos_Logo (2).png" alt="">
+                        </div>
+                        <div class="barcaMini">
+                            <img src="./assets/img/FCBarcelona.svg (1).png" alt="">
+                        </div>
+                        <div class="selecaoMini">
+                            <img src="./assets/img/pngwing.com.png" alt="">
+                        </div>
+                        <div class="psgMini">
+                            <img src="./assets/img/Logo_PSG (1).png" alt="">
+                        </div>
+                        <div class="alMini">
+                            <img src="./assets/img/Al-Hilal-Logo (1)-Photoroom.png-Photoroom.png" alt="">
+                        </div>
+                        <div class="linhaDois"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function cadastrar() {
+            var exibir = document.getElementById('exibir');
+            exibir.innerHTML = '';
+
+            var nomeVar = input_nome.value;
+            var emailVar = input_email.value;
+            var senhaVar = input_senha.value;
+            var confirmacaoSenhaVar = input_confirmar.value;
+
+            if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+                exibir.innerHTML = 'Preencha todos os campos!';
+                return false;
+            } else if (nomeVar.length < 2) {
+                exibir.innerHTML = 'Seu nome precisa conter mais de 1 caracter!';
+                return false;
+            } else if (senhaVar !== confirmacaoSenhaVar) {
+                exibir.innerHTML = 'As senhas não coincidem!';
+                return false;
+            }
+
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        exibir.innerHTML = 'Cadastro realizado com sucesso!';
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 2000);
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (erro) {
+                    exibir.innerHTML = `#ERRO: ${erro}`;
+                    console.log("#ERRO: ", erro);
+                });
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/6° Cadastro.css">
+    <link rel="shortcut icon" href="./assets/icon/bola-de-futebol-_2_.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Ousadia e Alegria</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="rightCadastro">
+                <img src="./assets/img/Ney🥱-Photoroom (2) 1.png" alt="">
+            </div>
+            <div class="leftCadastro">
+                <div class="box">
+                    <div class="boxCadastro">
+                        <div class="logoNey">
+                            <img src="./assets/img/Imagem do WhatsApp de 2024-05-18 à(s) 00.47.10_68d60645.png" alt="">
+                        </div>
+                        <div class="tituloCadastro">
+                            <h2>CADASTRE-SE AQUI</h2>
+                        </div>
+                            <div class="nomeCadastro">
+                                <label for="">
+                                    <input id="input_nome" placeholder="NOME">
+                                </label>
+                            </div>
+                            <div class="emailCadastro">
+                                <label for="">
+                                    <input id="input_email" placeholder="EMAIL">
+                                </label>
+                            </div>
+                            <div class="senhaCadastro">
+                                <label for="">
+                                    <input id="input_senha" type="password" required placeholder="SENHA">
+                                </label>
+                            </div>
+                            <div class="confirmarSenhaCadastro">
+                                <label for="">
+                                    <input id="input_confirmar" type="password" required placeholder="CONFIRMAR SENHA">
+                                </label>
+                            </div>
+                            <div class="BoxCadastrar">
+                                <button onclick="cadastrar()" type="submit">Cadastrar</button>
+                            </div>
+                            <div class="BoxcadastroVoltar">
+                                <a href="./index.html"><img src="./assets/img/botao-de-inicio (1) 1.png" alt=""></a>
+                            </div>
+                    </div>
+                    <div class="times">
+                        <div class="linhaUm"></div>
+                        <div class="santosMini">
+                            <img src="./assets/img/Santos_Logo (2).png" alt="">
+                        </div>
+                        <div class="barcaMini">
+                            <img src="./assets/img/FCBarcelona.svg (1).png" alt="">
+                        </div>
+                        <div class="selecaoMini">
+                            <img src="./assets/img/pngwing.com.png" alt="">
+                        </div>
+                        <div class="psgMini">
+                            <img src="./assets/img/Logo_PSG (1).png" alt="">
+                        </div>
+                        <div class="alMini">
+                            <img src="./assets/img/Al-Hilal-Logo (1)-Photoroom.png-Photoroom.png" alt="">
+                        </div>
+                        <div class="linhaDois"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+<script>
+
+    function cadastrar() {
+        
+        exibir.innerHTML='';
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_confirmar.value;
+    const arroba = emailVar.indexOf('@')
+    const arrobs = senhaVar.indexOf('@')
+    if (
+        nomeVar == "" ||
+        emailVar == "" ||
+        senhaVar == "" ||
+        confirmacaoSenhaVar == ""
+    ) {
+
+        exibir.innerHTML = `Preencha todos os campos!`;
+
+        return false;
+    } else if (nomeVar.length < 2) {
+        exibir.innerHTML = `Seu nome precisa conter<br>
+                    mais de 1 caracter!`
+                    return false;
+
+    } else {
+        setInterval(sumirMensagem, 1000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+        
+        return false;
+}
+
+
+</script> -->

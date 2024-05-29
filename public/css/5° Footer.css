@@ -1,0 +1,97 @@
+.footer-container{
+    width: 100%;
+    height: 30vh;
+    background-color: #e5e5e5;
+}
+
+.footer_ney{
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+.custom-shape-divider-bottom-1715970591 {
+    position: relative;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    transform: rotate(180deg);
+    line-height: 0;
+    z-index: 3;
+}
+
+.custom-shape-divider-bottom-1715970591 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 40px;
+}
+
+.custom-shape-divider-bottom-1715970591 .shape-fill {
+    fill: #e5e5e5
+}
+
+.Contact_footer, .Partner_footer, .Xplr_footer{
+    margin-top: 10px;
+    font-size: 20px;
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20vw;
+    height: 100%;
+}
+
+#titulos_footer{
+    height: 5vh;
+    font-size: 15px;
+    display: flex;
+    align-self: center;
+}
+
+.copyright_footer {
+    font-size: 12px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 36vw;
+    height: 100%;
+}
+
+.SocialMidia_footer{
+    font-size: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20vw;
+    height: 100%;
+}
+
+.Partner_footer p{
+    font-size: 12px;
+}
+
+.Xplr_footer a{
+    font-size: 12px;
+    padding: 5px;
+}
+
+.imgs{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.imgs img {
+    width: 30px;
+}
+
+#Contato_footer{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 30px;
+}

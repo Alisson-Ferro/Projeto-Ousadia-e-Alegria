@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="./assets/icon/bola-de-futebol-_2_.ico">
+<link rel="stylesheet" href="./css/9° NeyQuiz.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeyQuiz | Ousadia e Alegria</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+
+            <nav class="menu-hamburger">
+
+                <input id="menu-hamburguer" type="checkbox" />
+                <label for="menu-hamburguer">
+                    <div class="menu">
+                        <span class="hamburguer"></span>
+                    </div>
+                </label>
+                <ul class="menu-hamburguer-elements show">
+                    <div class="hmbg">
+                        <li>
+                            <div class="logoImg">
+                                <img src="./assets/img/magem do WhatsApp de 2024-05-18 à(s) 00.47.10_68d60645.png"
+                                    alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="usuarioImg">
+                                <img src="./assets/img/do-utilizador (1).png" alt="">
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="Bem-vindo">
+                                <h4>Olá usuário</h4>
+                                <h4>Seja Bem-vindo</h4>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="numero03">01</div>
+                            <a href="#">NEYQUIZ</a>
+                        </li>
+                        <li>
+                            <div class="neymarApontando">
+                                <img src="./assets/img/Neymar Jr 1⃣1⃣-Photoroom 1.png" alt="">
+                            </div>
+                        </li>
+                    </div>
+                    <div class="buttonCadastroHMBG">
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    <img src="./assets/img/engrenagem.png" alt="Engrenagem" class="gear">
+                                </button>
+                                <div class="dropdown-content animate">
+                                    <div class="inMenu">
+                                        <div class="imgSair">
+                                            <img src="./assets/img/sair (1).png" alt="">
+                                        </div>
+                                        <div class="Sair">
+                                            <a href="index.html"><h6>Sair</h6></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+
+            <div class="neyQuiz">
+                <img src="./assets/img/Sem Título-1.png" alt="">
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="dashGlogal">
+                <div class="kpi">
+                    <div class="card">
+                        <div class="cardTemp">
+                            <div class="header-Card">
+                                <h2>Tempo Restante da pergunta</h2>
+                            </div>
+                            <div class="content-Card">
+                                <h1>---</h1>
+                            </div>
+                        </div>
+                        <div class="cardQuestion">
+                            <div class="header-Card">
+                                <h2>Pergunta</h2>
+                            </div>
+                            <div class="content-Card">
+                                <h1>0</h1>
+                            </div>
+                        </div>
+                        <div class="cardTry">
+                            <div class="header-Card">
+                                <h2>Tentativas</h2>
+                            </div>
+                            <div class="content-Card">
+                                <h1>0</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="graficos-Quiz">
+                    <div class="all">
+                        <div class="left">
+                            <div class="boxQuestions">
+                                <div class="perguntasLeft"></div>
+                                <div class="btnRespostas">
+                                    <button></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="boxAnswer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+<script>
+    const gear = document.querySelector('.gear');
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdown = document.querySelector('.dropdown'); // Seleciona o elemento dropdown
+
+    let rotation = 0;
+
+    dropbtn.addEventListener('click', () => {
+        if (rotation === 0) {
+            rotation = 180; // Adiciona 90 graus a cada clique
+            dropdown.classList.add('open'); // Adiciona a classe "open" à dropdown
+        } else {
+            rotation = 0; // Volta para a posição inicial
+            dropdown.classList.remove('open'); // Remove a classe "open" da dropdown
+        }
+        gear.style.transform = `rotate(${rotation}deg)`;
+    });
+
+</script>

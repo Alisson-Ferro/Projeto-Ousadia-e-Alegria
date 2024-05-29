@@ -1,0 +1,107 @@
+.AboutUs-section{
+    width: 100%;
+    height: 100vh;
+    background-color: #e5e5e5;
+}
+
+.SobreNos-Content{
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    font-size: 80px;
+    justify-content: center;
+    align-items: center;
+    color: #000729;
+    width: 100%;
+    height: 20vh;
+}
+
+.SobreNos-container{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+}
+
+.SobreNosLeft{
+    margin:0px 0px 0px 20px;
+    width: 47vw;
+    height: 100%;
+}
+
+.SobreNos_Explorando, .SobreNos_Descubra, .SobreNos_Futebol, .SobreNos_Junto{
+    font-family: "Krona One", sans-serif;
+    font-size: 14px;
+    width: 100%;
+    height: 15vh;
+    color: #000729;
+    margin: 0px 10px 0px 10px;
+}
+
+.SobreNosLeft p{
+    font-weight: normal;
+    font-family: "Krona One", sans-serif;
+    font-size: 15px;
+}
+
+
+.SobreNosRight{
+    display: flex;
+    width: 53vw;
+    height: 103%;
+    justify-content: flex-end;
+    align-items:flex-end
+}
+
+.SobreNosRight img{
+    display: flex;
+    height: 80vh;
+    justify-content: flex-end;
+    align-items:flex-end
+}
+
+
+.btn_sobreNos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 7vh;
+}
+
+.btn_sobreNos>button{
+    font-family: "Krona One", sans-serif;
+    color: #fff;
+    width: 25vw;
+    height: 7vh;
+    background-color: #000729;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn_sobreNos button:hover{
+    transition: all 0.3s ease-in;
+    background-color: #001684;
+}
+
+
+.custom-shape-divider-top-1715965374 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2;
+    background-color: #e5e5e5;
+}
+
+.custom-shape-divider-top-1715965374 svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.8px);
+    height: 73px;
+}
+
+.custom-shape-divider-top-1715965374 .shape-fill {
+    fill: #000729;
+}

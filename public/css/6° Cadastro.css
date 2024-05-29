@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Krona+One&display=swap');
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #000729;
+
+}
+
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.rightCadastro{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    width: 46vw;
+    height: 100vh;
+}
+
+.leftCadastro{
+    position: absolute;
+    left: 0px;
+    display: flex;
+    width: 54vw;
+    height: 100vh; 
+}
+
+.rightCadastro img{
+    position: relative;
+    right: -140px;
+    height: 100%;
+    width: 74%;
+}
+
+.box{
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.boxCadastro{
+    position: relative;
+    border:none;
+    border-radius: 30px;
+    left: 80px;
+    background-color: rgba(204, 204, 204, 0.504);
+    width: 76%;
+    height: 62%;
+}
+
+.times{
+    position: relative;
+    left: 80px;
+    display: flex;
+    top: 5px;
+    justify-content: center;
+    align-items: center;
+    
+    width: 76%;
+    height: 10vh;
+}
+
+.logoNey{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+}
+
+.logoNey img{
+    width: 8vw;
+    height: 8vh;
+}
+
+.tituloCadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+}
+
+.tituloCadastro h2{
+    font-weight: normal;
+    font-family: "Krona One", sans-serif;
+    font-size: 40px;
+    color: #fff
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nomeCadastro, .emailCadastro, .senhaCadastro, .confirmarSenhaCadastro, .BoxCadastrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 7vh;
+}
+
+label{
+    width: 85%;
+
+}
+
+input{
+    font-weight: normal;
+    font-family: "Krona One", sans-serif;
+    background-color: #bababa;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 100%;
+}
+
+
+.BoxCadastrar button{
+    font-family: "Krona One", sans-serif;
+    color: #fff;
+    display: flex;
+    font-size: 15px;
+    background-color: #ffc400;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 5vh;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.BoxCadastrar button:hover{
+    background-color: #a47e00;
+    transition: all 0.3s ease-in;
+}
+
+
+.santosMini, .barcaMini, .selecaoMini, .psgMini, .alMini, .linhaUm, .linhaDois{
+    margin: 0px 5px;
+    width: 10vh;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.santosMini img{
+    justify-content: space-around;
+    width: 80%;
+    height: 80%;
+}
+
+.barcaMini img{
+    width: 80%;
+    height: 80%;
+}
+
+.selecaoMini img{
+    width: 80%;
+    height: 80%;
+}
+
+.psgMini img{
+    width: 80%;
+    height: 80%;
+
+}
+
+.alMini img{
+    width: 80%;
+    height: 80%;
+}
+
+.linhaUm{
+    margin: 0;
+    width: 10%;
+    height: 5%;
+    background-color: #fff;
+}
+
+.linhaDois{
+    margin: 0;
+    width: 10%;
+    height: 5%;
+    background-color: #fff;
+}
+
+.BoxcadastroVoltar{
+    display: flex;
+    justify-content: center;
+}
+
+#exibir{
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    font-size: 10px;
+    justify-content: center;
+}
