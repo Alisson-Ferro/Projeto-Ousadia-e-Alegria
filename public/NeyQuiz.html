@@ -38,7 +38,7 @@
 
                         <li>
                             <div class="Bem-vindo">
-                                <h4>Olá usuário</h4>
+                                <h4>Olá, usuário</h4>
                                 <h4>Seja Bem-vindo</h4>
                             </div>
                         </li>
@@ -65,7 +65,9 @@
                                             <img src="./assets/img/sair (1).png" alt="">
                                         </div>
                                         <div class="Sair">
-                                            <a href="index.html"><h6>Sair</h6></a>
+                                            <a href="index.html">
+                                                <h6>Sair</h6>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -81,55 +83,159 @@
         </nav>
     </header>
 
-    <section>
-        <div class="container">
-            <div class="dashGlogal">
-                <div class="kpi">
-                    <div class="card">
-                        <div class="cardTemp">
-                            <div class="header-Card">
-                                <h2>Tempo Restante da pergunta</h2>
-                            </div>
-                            <div class="content-Card">
-                                <h1>---</h1>
-                            </div>
+    <div class="corpo" id="corpo">
+        <div class="dashGlogal">
+            <div class="kpi">
+                <div class="card">
+                    <div class="cardTemp">
+                        <div class="header-Card">
+                            <h2>Tempo Restante da pergunta</h2>
                         </div>
-                        <div class="cardQuestion">
-                            <div class="header-Card">
-                                <h2>Pergunta</h2>
-                            </div>
-                            <div class="content-Card">
-                                <h1>0</h1>
-                            </div>
-                        </div>
-                        <div class="cardTry">
-                            <div class="header-Card">
-                                <h2>Tentativas</h2>
-                            </div>
-                            <div class="content-Card">
-                                <h1>0</h1>
-                            </div>
+                        <div class="content-Card">
+                            <div id="countdown" class="info_kpi" style="display: none;"></div>
                         </div>
                     </div>
-                </div>
-                <div class="graficos-Quiz">
-                    <div class="all">
-                        <div class="left">
-                            <div class="boxQuestions">
-                                <div class="perguntasLeft"></div>
-                                <div class="btnRespostas">
-                                    <button></button>
-                                </div>
-                            </div>
+                    <div class="cardQuestion">
+                        <div class="header-Card">
+                            <h2>Pergunta</h2>
                         </div>
-                        <div class="right">
-                            <div class="boxAnswer"></div>
+                        <div class="content-Card">
+                            <div id="numeroQuestao" class="info_kpi" style="display: block;"></div>
+                        </div>
+                    </div>
+                    <div class="cardTry">
+                        <div class="header-Card">
+                            <h2>Tentativas</h2>
+                        </div>
+                        <div class="content-Card">
+                            <h1>0</h1>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="modal_encerrado" id="modal_encerramento">
+                <form class="modal-content animate">
+                    <h1>Acabou o tempo jogadô</h1>
+                    <h2>Mas não se preocupe tente mais uma vez :)</h2>
+                    <button class="botoes_encerrado" id="botao_recomecar" onclick="recomecar()">Recomeçar</button>
+                </form>
+            </div>
+            <div class="graficos-Quiz">
+                <div class="all">
+                    <div class="left">
+                        <div class="boxQuestions">
+                            <div class="perguntasLeft">
+                                <div id="perguntas">
+                                    <div id="telaInicial">
+                                        <h2>Seja bem-vindo(a) craque</h2>
+                                        <h2>Esse é o quiz do Neymar, o NEYQUIZ</h2>
+                                        <button id="comecarQuiz" onclick="updateCountdown()">Começar</button>
+                                    </div>
+
+                                    <div class="quiz-container">
+                                        <div id="quiz">
+                                            <div class="pergunta-container">
+                                                <div class="pergunta" id="div_perguntas"></div>
+                                                <ul class="respostas"> </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="respostas">
+                            <div class="btnRespostasLeft">
+                                <div class="UP">
+                                    <button class="btnBoxA" onclick="enviarResposta('a')"><svg viewBox="0 0 512 512"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" fill="" stroke="">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke="#CCCCCC" stroke-width="5.12">
+                                            </g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <title>triangle-filled</title>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <g id="drop" fill="#2bd700"
+                                                        transform="translate(32.000000, 42.666667)">
+                                                        <path
+                                                            d="M246.312928,5.62892705 C252.927596,9.40873724 258.409564,14.8907053 262.189374,21.5053731 L444.667042,340.84129 C456.358134,361.300701 449.250007,387.363834 428.790595,399.054926 C422.34376,402.738832 415.04715,404.676552 407.622001,404.676552 L42.6666667,404.676552 C19.1025173,404.676552 7.10542736e-15,385.574034 7.10542736e-15,362.009885 C7.10542736e-15,354.584736 1.93772021,347.288125 5.62162594,340.84129 L188.099293,21.5053731 C199.790385,1.04596203 225.853517,-6.06216498 246.312928,5.62892705 Z"
+                                                            id="Combined-Shape"> </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>A</button>
+                                    <button class="btnBoxB" onclick="enviarResposta('b')"><svg viewBox="0 0 512 512"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <title>circle-filled</title>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <g id="icon" fill="#18008f"
+                                                        transform="translate(42.666667, 42.666667)">
+                                                        <path
+                                                            d="M213.333333,3.55271368e-14 C331.15408,3.55271368e-14 426.666667,95.5125867 426.666667,213.333333 C426.666667,331.15408 331.15408,426.666667 213.333333,426.666667 C95.5125867,426.666667 3.55271368e-14,331.15408 3.55271368e-14,213.333333 C3.55271368e-14,95.5125867 95.5125867,3.55271368e-14 213.333333,3.55271368e-14 Z"
+                                                            id="Combined-Shape"> </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>B</button>
+                                </div>
+                                <div class="Down">
+                                    <button class="btnBoxC" onclick="enviarResposta('c')"><svg viewBox="0 -0.5 17 17"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-square"
+                                            fill="#000000">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <title>1230</title>
+                                                <defs> </defs>
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <path
+                                                        d="M0.00199999998,1 C0.00199999998,0.447 0.446,0 0.995,0 L14.967,0 C15.516,0 15.96,0.447 15.96,1 L15.96,15 C15.96,15.553 15.516,16 14.967,16 L0.995,16 C0.446,16 0.00199999998,15.553 0.00199999998,15 L0.00199999998,1 L0.00199999998,1 Z"
+                                                        fill="#00b0bd" class="si-glyph-fill"> </path>
+                                                </g>
+                                            </g>
+                                        </svg>C</button>
+                                    <button class="btnBoxD" onclick="enviarResposta('d')"><svg viewBox="0 0 16 16"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                            </g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path fill="#7B0000"
+                                                    d="M9.166.33a2.25 2.25 0 00-2.332 0l-5.25 3.182A2.25 2.25 0 00.5 5.436v5.128a2.25 2.25 0 001.084 1.924l5.25 3.182a2.25 2.25 0 002.332 0l5.25-3.182a2.25 2.25 0 001.084-1.924V5.436a2.25 2.25 0 00-1.084-1.924L9.166.33z">
+                                                </path>
+                                            </g>
+                                        </svg>D
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="right">
+                        <div class="boxImgReacaoNey">
+                            <div id="reacaoNey">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
 </body>
 
 </html>
@@ -151,5 +257,216 @@
         }
         gear.style.transform = `rotate(${rotation}deg)`;
     });
+
+    const numeroQuestao = document.getElementById('numeroQuestao');
+    const countdownElement = document.getElementById('countdown');
+
+    const INITIAL_SECONDS = 45;
+    let seconds = INITIAL_SECONDS;
+    const timerIds = [];
+
+    function updateCountdown() {
+        document.getElementById('respostas').style.display = 'flex';
+        document.getElementById('countdown').style.display = 'block';
+        if (perguntaAtual >= questoesSelecionadas.length) {
+            countdownElement.textContent = "";
+            document.getElementById('respostas').style.display = 'none';
+        } else if (seconds > 0) {
+            countdownElement.textContent = seconds + ' seg';
+            seconds--;
+            const timerId = setTimeout(updateCountdown, 1000);
+            timerIds.push(timerId);
+        } else {
+            for (let i = 0; i < timerIds.length; i++) {
+                clearTimeout(timerIds[i]);
+            }
+            countdownElement.textContent = 'Tempo esgotado';
+            document.getElementById('modal_encerramento').style.display = "block"
+        }
+    }
+
+    document.getElementById('botao_recomecar').addEventListener('click', () => {
+        document.getElementById('modal_encerramento').style.display = 'none';
+        document.getElementById('telaInicial').style.display = 'block';
+        document.getElementById('div_perguntas').style.display = 'none'
+        carregarQuiz();
+    });
+
+
+    const dadosQuiz = [
+        {
+            pergunta: "Qual é o nome completo de Neymar?",
+            a: "Neymar dos Santos Júnior",
+            b: "Neymar da Silva Santos Júnior",
+            c: "Neymar Silva Júnior",
+            d: "Neymar Santos Júnior",
+            correta: "b"
+        },
+        {
+            pergunta: "Qual clube Neymar deixou para se juntar ao Barcelona em 2013?",
+            a: "Santos",
+            b: "Fluminense",
+            c: "Palmeiras",
+            d: "Flamengo",
+            correta: "a"
+        },
+        {
+            pergunta: "Por qual clube europeu Neymar jogou após sair do Barcelona?",
+            a: "Manchester United",
+            b: "Real Madrid",
+            c: "Paris Saint-Germain (PSG)",
+            d: "Bayern Munich",
+            correta: "c"
+        },
+        {
+            pergunta: "Quantos gols Neymar marcou na Copa do Mundo de 2014?",
+            a: "2",
+            b: "4",
+            c: "6",
+            d: "8",
+            correta: "b"
+        },
+        {
+            pergunta: "Em qual cidade Neymar nasceu?",
+            a: "São Paulo",
+            b: "Santos",
+            c: "Rio de Janeiro",
+            d: "Mogi das Cruzes",
+            correta: "d"
+        },
+        {
+            pergunta: "Qual foi a maior transferência de Neymar em termos de valor?",
+            a: "100 milhões de euros",
+            b: "150 milhões de euros",
+            c: "222 milhões de euros",
+            d: "300 milhões de euros",
+            correta: "c"
+        },
+        {
+            pergunta: "Quantos títulos da La Liga Neymar ganhou com o Barcelona?",
+            a: "1",
+            b: "2",
+            c: "3",
+            d: "4",
+            correta: "c"
+        },
+        {
+            pergunta: "Qual é o nome do filho de Neymar?",
+            a: "Davi Lucca",
+            b: "Gabriel Jesus",
+            c: "Thiago Silva",
+            d: "Lucas Moura",
+            correta: "a"
+        },
+        {
+            pergunta: "Em qual ano Neymar nasceu?",
+            a: "1990",
+            b: "1992",
+            c: "1995",
+            d: "1998",
+            correta: "b"
+        },
+        {
+            pergunta: "Em qual ano Neymar ganhou a medalha de ouro olímpica com a seleção brasileira?",
+            a: "2012",
+            b: "2014",
+            c: "2016",
+            d: "2018",
+            correta: "c"
+        },
+    ];
+
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    shuffle(dadosQuiz);
+    const questoesSelecionadas = dadosQuiz.slice(0, 10);
+
+    let perguntaAtual = 0;
+    let pontuacao = 0;
+
+    const quizContainer = document.getElementById('quiz');
+    const perguntaElemento = document.querySelector('.pergunta');
+    const respostasContainer = document.querySelector('.respostas');
+
+    function carregarQuiz() {
+        document.getElementById('numeroQuestao').style.display = 'block';
+        if (perguntaAtual < questoesSelecionadas.length) {
+            const quizAtual = questoesSelecionadas[perguntaAtual];
+            numeroQuestao.textContent = `${perguntaAtual + 1}`;
+            perguntaElemento.innerText = quizAtual.pergunta;
+            respostasContainer.innerHTML =
+                `<br>
+            <b>A:</b> ${quizAtual.a}<br>
+            <b>B:</b> ${quizAtual.b}<br>
+            <b>C:</b> ${quizAtual.c}<br>
+            <b>D:</b> ${quizAtual.d}<br>`;
+        } else {
+            document.getElementById('respostas').style.display = 'none';
+            numeroQuestao.style.display = 'none';
+            document.getElementById('countdown').style.display = 'none';
+            if (pontuacao >= 6 && pontuacao <= 9) {
+                quizContainer.innerHTML = `<h2>Muito bem!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
+            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>`
+
+            } else if (pontuacao == 10) {
+                quizContainer.innerHTML = `<h2>Parabéns, você gabaritou!!!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
+            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>`
+            } else if (pontuacao <= 5) {
+                quizContainer.innerHTML = `<h2>Que pena não foi dessa vez! :(<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
+            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>`
+            }
+        }
+    }
+
+    function enviarResposta(respostaSelecionada) {
+        seconds = INITIAL_SECONDS;
+
+        if (respostaSelecionada === questoesSelecionadas[perguntaAtual].correta) {
+            pontuacao++;
+        }
+
+        perguntaAtual++;
+
+        if (perguntaAtual < questoesSelecionadas.length) {
+            carregarQuiz();
+        } else {
+            document.getElementById('respostas').style.display = 'none';
+            numeroQuestao.style.display = 'none';
+            document.getElementById('countdown').style.display = 'none';
+            if (pontuacao >= 6 && pontuacao <= 9 ) {
+                quizContainer.innerHTML = `<h2>Muito bem!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>`
+            reacaoNey.innerHTML = `<img src="./assets/img/download (3).jpg">`
+            } else if (pontuacao == 10) {
+                quizContainer.innerHTML = `<h2>Parabéns, você gabaritou!!!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>`
+            reacaoNey.innerHTML = `<img src="./assets/img/download (5).jpg">`
+            } else if (pontuacao <= 5) {
+                quizContainer.innerHTML = `<h2>Que pena não foi dessa vez! :(<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>`
+                reacaoNey.innerHTML = `<img src="./assets/img/download (4).jpg">`
+            }
+        }
+    }
+
+    document.getElementById('comecarQuiz').addEventListener('click', () => {
+        document.getElementById('telaInicial').style.display = 'none';
+        document.querySelector('.graficos-Quiz').style.display = 'flex';
+        carregarQuiz();
+    });
+
+    function regras() {
+        document.querySelector('.modal_regras').style.display = 'flex';
+    }
+
+    function voltar() {
+        document.querySelector('.modal_regras').style.display = 'none';
+    }
 
 </script>

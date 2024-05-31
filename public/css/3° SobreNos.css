@@ -86,13 +86,13 @@
 
 
 .custom-shape-divider-top-1715965374 {
-    top: 0;
+    position: relative;
+    top: -43px;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
     z-index: 2;
-    background-color: #e5e5e5;
 }
 
 .custom-shape-divider-top-1715965374 svg {
