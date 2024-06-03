@@ -74,7 +74,7 @@ main {
     width: 100%;
     background: linear-gradient(90deg, #000729, #000755 70.71%);
     background-size: cover;
-    height: 400vh;
+    height: 610vh;
 }
 
 .nav-list {
@@ -132,6 +132,7 @@ main {
 }
 
 .titulo-Home{
+    font-family: "Krona One", sans-serif;
     padding: 0px 10px;
     margin-top: 20px;
     font-size: 50px;
@@ -139,6 +140,7 @@ main {
 
 .santos p{
     font-size: 17px;
+    font-weight: 700;
     text-align: center;
     font-family: 'Darker Grotesque';
 }
@@ -174,12 +176,14 @@ main {
 
 .Home_Alegria p{
     font-size: 17px;
+    font-weight: 700;
     font-family: 'Darker Grotesque';
     margin: 0px 0px 10px 0px;
 }
 
 .Home_destaques p{
     font-size: 17px;
+    font-weight: 700;
     font-family: 'Darker Grotesque';
     margin: 0px 0px 10px 0px;
 }
@@ -196,9 +200,9 @@ main {
 }
 
 .transicao-barca{
-    top: 420px;
+    top: -300px;
     position: relative;
-    z-index: 2;
+    z-index: 8;
 }
 
 
@@ -208,11 +212,563 @@ main {
     background-color: #fff;
 }
 
-.barca-Content{
+.barca-content{
+    top: -90px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 7;
     width: 100%;
-    height: 100%;
+    height: 95vh;
 }
 
 .triagulo{
     fill: url(#gradient) #000729;
+}
+
+
+.rightBarca{
+    width: 70%;
+    height: 90vh;
+}
+
+.leftBarca{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Krona One", sans-serif;
+    width: 30%;
+    color: #fff;
+    height: 90vh;
+}
+
+.tituloBarca{
+    font-family: "Krona One", sans-serif;
+    padding: 0px 10px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.barca p{
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Darker Grotesque';
+}
+
+.barca h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.psg-section{
+    width: 100%;
+    height: 83vh;
+}
+
+.psg-content{
+    top: -35px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 9;
+    width: 100%;
+    height: 95vh;
+}
+
+.rightPsg{
+    position: relative;
+    top: -80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 30%;
+    height: 90vh;
+}
+
+.leftPsg{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Krona One", sans-serif;
+    width: 70%;
+    color: #fff;
+    height: 90vh;
+}
+
+.tituloPsg{
+    font-family: "Krona One", sans-serif;
+    padding: 0px 10px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.psg p{
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Darker Grotesque';
+}
+
+.psg h2{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transicaoPSG{
+    top: -300px;
+    position: relative;
+    z-index: 10;
+}
+
+.rightPsg img{
+    width: 120%;
+    height: 80%;
+}
+
+.alhilal-section{
+    width: 100%;
+    height: 83vh;
+    background-color: #fff;
+}
+
+.Al-content{
+    top: -75px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 11;
+    width: 100%;
+    height: 95vh;
+}
+
+.rightAl{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 90vh;
+}
+
+.leftAl{
+    position: relative;
+    z-index: 14;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: "Krona One", sans-serif;
+    width: 30%;
+    color: #fff;
+    height: 90vh;
+}
+
+.tituloAl{
+    font-family: "Krona One", sans-serif;
+    padding: 0px 10px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.all p{
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Darker Grotesque';
+}
+
+.all h2{
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transicaoAll{
+    top: -300px;
+    position: relative;
+    z-index: 10;
+}
+
+.leftAl img{
+    width: 100%;
+    height: 70%;
+}
+
+.transicao-AL-hilal{
+    top: -300px;
+    position: relative;
+    z-index: 11;
+}
+
+.selecao-section{
+    width: 100%;
+    height: 83vh;
+    
+}
+
+.selecao-content{
+    top: -30px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 11;
+    width: 100%;
+    height: 95vh;
+}
+
+.rightSelecao{
+    top: -180px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 30%;
+    height: 100vh;
+}
+
+.leftSelecao{
+    position: relative;
+    z-index: 14;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Krona One", sans-serif;
+    width: 70%;
+    color: #fff;
+    height: 90vh;
+}
+
+.tituloSelecao{
+    font-family: "Krona One", sans-serif;
+    padding: 0px 10px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.selecao p{
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Darker Grotesque';
+}
+
+.selecao h2{
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightSelecao img{
+    width: 90%;
+    height: 100%;
+}
+
+.transicaoSelecao{
+    top: -300px;
+    position: relative;
+    z-index: 11;
+}
+
+.comunidade-section{
+    width: 100%;
+    height: 100vh;
+}
+
+.comunidade-content{
+    justify-content: flex-start;
+    align-items: center;
+    top: -30px;
+    background: linear-gradient(90deg, #ffcc24, #46ff2a,  #00a0c8);
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    position: relative;
+    z-index: 11;
+    width: 100%;
+    height: 110vh;
+}
+
+.tituloCentral{
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 25px;
+    align-items: center;
+    font-family: "Krona One", sans-serif;
+}
+
+.tituloCentral p{
+    text-align: center;
+    font-size: 20px;
+}
+
+.trianguloNJR{
+    fill: url(#gradiente) #ffc400;
+}
+
+.NJR{
+    font-size: 15px;
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px 25px;
+    align-items: flex-start;
+    font-family: "Krona One", sans-serif;
+}
+
+.tituloInstituto{
+    width: 100%;
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    padding: 0px 10px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.homeTituloBaixoNJR{
+    font-size: 15px;
+    display: flex;
+    width: 66%;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 25px;
+    align-items: flex-start;
+    font-family: "Krona One", sans-serif;
+}
+
+.NJR p{
+    font-size: 20px;
+    padding: 8px;
+    font-weight: 500;
+    font-family: 'Darker Grotesque';
+}
+
+.Home_AlegriaNJR{
+    margin-right: 100px;
+    width: 40%;
+}
+
+
+.Home_destaquesNJR{
+    width: 40%;
+}
+
+.Home_AlegriaNJR h2{
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Home_AlegriaNJR p{
+    font-size: 20px;
+    padding: 8px;
+    font-weight: 500;
+    font-family: 'Darker Grotesque';
+}
+
+.Home_destaquesNJR p{
+    font-size: 20px;
+    padding: 8px;
+    font-weight: 500;
+    font-family: 'Darker Grotesque';
+}
+
+.leftInstituto{
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.leftInstituto img{
+    position: relative;
+    top:-300px;
+    width: 50%;
+    height: 100%;
+}
+
+.transicao-NJR{
+    top: -300px;
+    position: relative;
+    z-index: 11;
+}
+
+.transicao-barca{
+    top: -300px;
+    position: relative;
+    z-index: 8;
+}
+
+
+.neyQuiz-section{
+    width: 100%;
+    height: 83vh;
+}
+
+.NeyQuiz-content{
+    color: #fff;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 11;
+    width: 100%;
+    height: 95vh;
+}
+
+
+
+.rightNeyQuiz{
+    width: 67%;
+    height: 90vh;
+}
+
+.leftNeyQuiz{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Krona One", sans-serif;
+    width: 33%;
+    color: #fff;
+    height: 90vh;
+}
+
+.leftNeyQuiz img{
+    width: 100%;
+    height: 110%;
+}
+
+.tituloNeyQuiz{
+    font-family: "Krona One", sans-serif;
+    padding: 0px 10px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.neyQuiz p{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Darker Grotesque';
+}
+
+.neyQuiz h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeTituloBaixoNeyQuiz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px;
+}
+
+.homeTituloBaixoNeyQuiz> button{
+
+border: none;
+    padding: 10px;
+    font-family: "Krona One", sans-serif;
+    background-color: #ffc400;
+    color: #f9f9f9;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+    width: 15vw;
+}
+
+.transicaoNey{
+    top: -300px;
+    position: relative;
+    z-index: 11;
+}
+
+.footer-container{
+    position: relative;
+    top: -30px;
+    z-index: 11;
+    width: 100%;
+    height: 30vh;
+}
+
+.footer_ney{
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.Contact_footer, .Partner_footer, .Xplr_footer{
+    margin-top: 10px;
+    font-size: 20px;
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20vw;
+    height: 100%;
+}
+
+#titulos_footer{
+    height: 5vh;
+    font-size: 15px;
+    display: flex;
+    align-self: center;
+}
+
+.copyright_footer {
+    font-size: 12px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 36vw;
+    height: 100%;
+}
+
+.SocialMidia_footer{
+    font-size: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20vw;
+    height: 100%;
+}
+
+.Partner_footer p{
+    font-size: 12px;
+}
+
+.Xplr_footer a{
+    font-size: 12px;
+    padding: 5px;
+}
+
+.imgs{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.imgs img {
+    width: 30px;
+}
+
+#Contato_footer{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 30px;
 }

@@ -24,21 +24,19 @@
                 <div class="BoxLoginLogo">
                     <img src="./assets/img/Imagem do WhatsApp de 2024-05-18 à(s) 00.47.10_68d60645.png" alt="">
                 </div>
-                <form action="">
+                <!-- <form method=""> -->
                 <div class="BoxLoginInputEmail">
                     <label>
-                        <input placeholder="EMAIL" required>
+                        <input placeholder="EMAIL" id="input_email" required>
                     </label>
                 </div>
                 <div class="BoxLoginInputSenha">
                     <label>
-                        <input placeholder="SENHA" required>
+                        <input placeholder="SENHA" id="input_senha" required>
                     </label>
                 </div>
-                <!-- <div class="BoxLoginCheckManterConectado"></div>
-                <div class="BoxLoginLinkEsqueceuSenha"></div> -->
                 <div class="BoxLoginEntrar">
-                    <button type="submit">ENTRAR</button>
+                    <button onclick="entrar()">ENTRAR</button>
                 </div>
                 <div class="cadastro">
                     <h6 id="pergunta">Não tem conta craque?</h6>
@@ -48,7 +46,7 @@
                     <a href="./index.html"><img src="./assets/img/botao-de-inicio (1) 1.png" alt=""></a>
                 </div>
             </div>
-        </form>
+        <!-- </form> -->
             <div class="LoginNey">
                 <img src="./assets/img/Ney🥱-Photoroom (1).png" alt="">
             </div>
@@ -66,3 +64,64 @@
 </body>
 
 </html>
+<script>
+    function entrar() {
+
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+        
+        alert("Preencha todos os campos!");
+        return false;
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+               
+
+                setTimeout(function () {
+                   window.location.href='segundoIndex.html'
+                },); // apenas para exibir o loading
+
+            });
+
+        } else {
+                alert('Email e/ou senha inválidos!')
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+</script>
