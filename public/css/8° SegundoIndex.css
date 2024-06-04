@@ -139,7 +139,7 @@ main {
 }
 
 .santos p{
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 700;
     text-align: center;
     font-family: 'Darker Grotesque';
@@ -162,10 +162,12 @@ main {
 }
 
 .Home_destaques{
+    font-size: 20px;
     width: 40%;
 }
 
 .Home_Alegria{
+    font-size: 20px;
     margin-right: 100px;
     width: 40%;
 }
@@ -175,14 +177,14 @@ main {
 }
 
 .Home_Alegria p{
-    font-size: 17px;
+    font-size: 20px;;
     font-weight: 700;
     font-family: 'Darker Grotesque';
     margin: 0px 0px 10px 0px;
 }
 
 .Home_destaques p{
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 700;
     font-family: 'Darker Grotesque';
     margin: 0px 0px 10px 0px;
@@ -250,7 +252,7 @@ main {
 }
 
 .barca p{
-    font-size: 17px;
+    font-size: 20px;
     text-align: center;
     font-weight: 700;
     font-family: 'Darker Grotesque';
@@ -306,7 +308,7 @@ main {
 }
 
 .psg p{
-    font-size: 17px;
+    font-size: 20px;
     text-align: center;
     font-weight: 700;
     font-family: 'Darker Grotesque';
@@ -374,7 +376,7 @@ main {
 }
 
 .all p{
-    font-size: 17px;
+    font-size: 20px;
     text-align: center;
     font-weight: 700;
     font-family: 'Darker Grotesque';
@@ -450,7 +452,7 @@ main {
 }
 
 .selecao p{
-    font-size: 17px;
+    font-size: 20px;
     text-align: center;
     font-weight: 700;
     font-family: 'Darker Grotesque';
@@ -546,7 +548,7 @@ main {
 .NJR p{
     font-size: 20px;
     padding: 8px;
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'Darker Grotesque';
 }
 
@@ -570,14 +572,14 @@ main {
 .Home_AlegriaNJR p{
     font-size: 20px;
     padding: 8px;
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'Darker Grotesque';
 }
 
 .Home_destaquesNJR p{
     font-size: 20px;
     padding: 8px;
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'Darker Grotesque';
 }
 

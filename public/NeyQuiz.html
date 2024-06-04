@@ -450,17 +450,19 @@
             document.getElementById('countdown').style.display = 'none';
             if (pontuacao >= 6 && pontuacao <= 9) {
                 quizContainer.innerHTML = `<h2>Muito bem!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>
-            <button class="botoes_encerrado" id="botao_verGrafico" onclick="grafico()">Ver grafico</button>`
-
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="criarGraficoPizza()">Ver grafico</button>`
+                reacaoNey.innerHTML = `<img src="./assets/img/download (3).jpg">`
             } else if (pontuacao == 10) {
                 quizContainer.innerHTML = `<h2>Parabéns, você gabaritou!!!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>
-            <button class="botoes_encerrado" id="botao_verGrafico" onclick="grafico()">Ver grafico</button>`
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="criarGraficoPizza()">Ver grafico</button>`
+                reacaoNey.innerHTML = `<img src="./assets/img/download (5).jpg">`
             } else if (pontuacao <= 5) {
                 quizContainer.innerHTML = `<h2>Que pena não foi dessa vez! :(<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>
-            `
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="criarGraficoPizza()">Ver grafico</button>`
+                reacaoNey.innerHTML = `<img src="./assets/img/download (4).jpg">`
             }
         }
     }
@@ -517,42 +519,122 @@
         document.querySelector('.modal_regras').style.display = 'none';
     }
 
-
-    //Gráfico de Pizza
-    function criarGraficoPizza() {
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Acertos', 'Erros'],
-                datasets: [{
-                    label: 'Resultados do Quiz',
-                    data: [pontuacao, questoesSelecionadas.length - pontuacao],
-                    backgroundColor: [
-                        '#2bff00',
-                        '#ff0000'
-                    ],
-                    borderColor: [
-                        '#2bff00',
-                        '#ff0000'
-                    ],
-                    borderWidth: 1
-                }]
+    async function criarGraficoPizza() {
+        
+        console.log(pontuacao)
+        // Faz uma requisição POST assíncrona para a URL '/medidas/guardarPontuacao'
+        const response = await fetch('/quiz/registrarPontos', {
+            // Define o método da requisição como POST
+            method: 'POST',
+            // Define o cabeçalho da requisição, especificando que o corpo será em formato JSON
+            headers: {
+                'Content-Type': 'application/json'
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
+            // Converte o objeto JavaScript em uma string JSON e define-o como o corpo da requisição
+            body: JSON.stringify({
+                qtdPontos: pontuacao,  // Adiciona a pontuação atual ao corpo da requisição
+                totalQuestoes: questoesSelecionadas.length, // Adiciona o número total de perguntas ao corpo da requisição
+                idUsuario: sessionStorage.ID_USUARIO,
+            })
+        });
+
+        if (response.ok) {
+            // Labels para o gráfico de pizza
+            const labels = ['Erros', 'Acertos'];
+
+            // Dados para o gráfico
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Pontuação:',
+                    backgroundColor: ['red', '#3022cf'],
+                    borderWidth: 2,
+                    // Cálculo dos dados para o gráfico de pizza
+                    data: [
+                        questoesSelecionadas.length - pontuacao, // Quantidade de erros
+                        pontuacao                      // Quantidade de acertos
+                    ],
+                }]
+            };
+
+            // Configuração do gráfico
+            const config = {
+                type: 'pie',
+                data: data,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                color: 'white',
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    // Adicionando a porcentagem ao tooltip
+                                    label += (context.raw * 10);
+                                    return label;
+                                }
+                            }
+                        }
                     }
                 }
-            }
-        });
+            };
+
+            // Selecionando o canvas do gráfico
+            const canvas = document.getElementById('myChart');
+            canvas.height = 400; // Ajuste para um tamanho visível
+            canvas.width = 600;  // Ajuste para um tamanho visível
+
+            // Criando o gráfico
+            new Chart(canvas, config);
+
+        } else {
+            console.error("Erro ao registrar pontuação:", response.status);
+        }
+
     }
 
-    document.getElementById('botao_verGrafico').addEventListener('click', () => {
-        criarGraficoPizza();
-    });
+    //Gráfico de Pizza
+    // function criarGraficoPizza() {
+    //     const ctx = document.getElementById('myChart').getContext('2d');
+    //     const myChart = new Chart(ctx, {
+    //         type: 'pie',
+    //         data: {
+    //             labels: ['Acertos', 'Erros'],
+    //             datasets: [{
+    //                 label: 'Resultados do Quiz',
+    //                 data: [pontuacao, questoesSelecionadas.length - pontuacao],
+    //                 backgroundColor: [
+    //                     '#2bff00',
+    //                     '#ff0000'
+    //                 ],
+    //                 borderColor: [
+    //                     '#2bff00',
+    //                     '#ff0000'
+    //                 ],
+    //                 borderWidth: 1
+    //             }]
+    //         },
+    //         options: {
+    //             responsive: true,
+    //             plugins: {
+    //                 legend: {
+    //                     position: 'bottom'
+    //                 }
+    //             }
+    //         }
+    //     });
+    // }
+
+    // document.getElementById('botao_verGrafico').addEventListener('click', () => {
+    //     criarGraficoPizza();
+    // });
 </script>
 
 
