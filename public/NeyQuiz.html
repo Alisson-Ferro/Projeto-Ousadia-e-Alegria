@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeyQuiz | Ousadia e Alegria</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -38,7 +39,7 @@
 
                         <li>
                             <div class="Bem-vindo">
-                                <h4>Olá, usuário</h4>
+                                <h4>Olá, <span id="b_usuario">usuário</span>!</h4>
                                 <h4>Seja Bem-vindo</h4>
                             </div>
                         </li>
@@ -108,7 +109,7 @@
                             <h2>Tentativas</h2>
                         </div>
                         <div class="content-Card">
-                            <h1>0</h1>
+                            <h1 id="tentativas">0</h1>
                         </div>
                     </div>
                 </div>
@@ -130,6 +131,7 @@
                                         <h2>Seja bem-vindo(a) craque</h2>
                                         <h2>Esse é o quiz do Neymar, o NEYQUIZ</h2>
                                         <button id="comecarQuiz" onclick="updateCountdown()">Começar</button>
+
                                     </div>
 
                                     <div class="quiz-container">
@@ -226,6 +228,12 @@
 
 
                     </div>
+                    <div class="grafico" id="verGrafico" style="display: none;">
+                        <canvas id="myChart" width="530" height="530"></canvas>
+                        <p>Acertos: <span id="acertos"></span></p>
+                        <p>Erros: <span id="erros"></span></p>
+                        <button class="botoes_refazer" id="refazerQuiz" onclick="refazerQuiz()">Refazer Quiz</button>
+                    </div>
                     <div class="right">
                         <div class="boxImgReacaoNey">
                             <div id="reacaoNey">
@@ -239,21 +247,22 @@
 </body>
 
 </html>
-
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
     const gear = document.querySelector('.gear');
     const dropbtn = document.querySelector('.dropbtn');
-    const dropdown = document.querySelector('.dropdown'); // Seleciona o elemento dropdown
+    const dropdown = document.querySelector('.dropdown');
 
     let rotation = 0;
 
     dropbtn.addEventListener('click', () => {
         if (rotation === 0) {
-            rotation = 180; // Adiciona 90 graus a cada clique
-            dropdown.classList.add('open'); // Adiciona a classe "open" à dropdown
+            rotation = 180; 
+            dropdown.classList.add('open'); 
         } else {
-            rotation = 0; // Volta para a posição inicial
-            dropdown.classList.remove('open'); // Remove a classe "open" da dropdown
+            rotation = 0; 
+            dropdown.classList.remove('open'); 
         }
         gear.style.transform = `rotate(${rotation}deg)`;
     });
@@ -272,7 +281,7 @@
             countdownElement.textContent = "";
             document.getElementById('respostas').style.display = 'none';
         } else if (seconds > 0) {
-            countdownElement.textContent = seconds + ' seg';
+            countdownElement.textContent = seconds + ' segundos';
             seconds--;
             const timerId = setTimeout(updateCountdown, 1000);
             timerIds.push(timerId);
@@ -285,11 +294,13 @@
         }
     }
 
+
     document.getElementById('botao_recomecar').addEventListener('click', () => {
         document.getElementById('modal_encerramento').style.display = 'none';
         document.getElementById('telaInicial').style.display = 'block';
-        document.getElementById('div_perguntas').style.display = 'none'
+        document.getElementById('div_perguntas').style.display = 'none';
         carregarQuiz();
+
     });
 
 
@@ -394,6 +405,33 @@
     const perguntaElemento = document.querySelector('.pergunta');
     const respostasContainer = document.querySelector('.respostas');
 
+
+
+    function grafico() {
+        document.getElementById("verGrafico").style.display = "flex";
+        document.getElementById("acertos").textContent = pontuacao;
+        document.getElementById("erros").textContent =
+            questoesSelecionadas.length - pontuacao;
+
+        criarGraficoPizza();
+    }
+
+
+
+    function refazerQuiz() {
+        perguntaAtual = 0;
+        pontuacao = 0;
+
+        document.getElementById("verGrafico").style.display = "none";
+        document.getElementById("telaInicial").style.display = "block";
+
+        
+        location.reload();
+    }
+
+
+
+
     function carregarQuiz() {
         document.getElementById('numeroQuestao').style.display = 'block';
         if (perguntaAtual < questoesSelecionadas.length) {
@@ -412,17 +450,22 @@
             document.getElementById('countdown').style.display = 'none';
             if (pontuacao >= 6 && pontuacao <= 9) {
                 quizContainer.innerHTML = `<h2>Muito bem!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>`
+            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="grafico()">Ver grafico</button>`
 
             } else if (pontuacao == 10) {
                 quizContainer.innerHTML = `<h2>Parabéns, você gabaritou!!!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>`
+            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="grafico()">Ver grafico</button>`
             } else if (pontuacao <= 5) {
                 quizContainer.innerHTML = `<h2>Que pena não foi dessa vez! :(<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>`
+            <button id="comecarQuiz" onclick="location.reload()">Recarregar</button>
+            `
             }
         }
     }
+
+    
 
     function enviarResposta(respostaSelecionada) {
         seconds = INITIAL_SECONDS;
@@ -439,20 +482,25 @@
             document.getElementById('respostas').style.display = 'none';
             numeroQuestao.style.display = 'none';
             document.getElementById('countdown').style.display = 'none';
-            if (pontuacao >= 6 && pontuacao <= 9 ) {
+            if (pontuacao >= 6 && pontuacao <= 9) {
                 quizContainer.innerHTML = `<h2>Muito bem!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>`
-            reacaoNey.innerHTML = `<img src="./assets/img/download (3).jpg">`
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="grafico()">Ver grafico</button>`
+                reacaoNey.innerHTML = `<img src="./assets/img/download (3).jpg">`
             } else if (pontuacao == 10) {
                 quizContainer.innerHTML = `<h2>Parabéns, você gabaritou!!!<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>`
-            reacaoNey.innerHTML = `<img src="./assets/img/download (5).jpg">`
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="grafico()">Ver grafico</button>`
+                reacaoNey.innerHTML = `<img src="./assets/img/download (5).jpg">`
             } else if (pontuacao <= 5) {
                 quizContainer.innerHTML = `<h2>Que pena não foi dessa vez! :(<br><br>Sua pontuação foi de: ${pontuacao}/${questoesSelecionadas.length}</h2>
-            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>`
+            <button id="comecarQuiz" onclick="window.location.reload()">Recarregar</button>
+            <button class="botoes_encerrado" id="botao_verGrafico" onclick="grafico()">Ver grafico</button>`
                 reacaoNey.innerHTML = `<img src="./assets/img/download (4).jpg">`
             }
         }
+
+
     }
 
     document.getElementById('comecarQuiz').addEventListener('click', () => {
@@ -469,4 +517,60 @@
         document.querySelector('.modal_regras').style.display = 'none';
     }
 
+
+    //Gráfico de Pizza
+    function criarGraficoPizza() {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Acertos', 'Erros'],
+                datasets: [{
+                    label: 'Resultados do Quiz',
+                    data: [pontuacao, questoesSelecionadas.length - pontuacao],
+                    backgroundColor: [
+                        '#2bff00',
+                        '#ff0000'
+                    ],
+                    borderColor: [
+                        '#2bff00',
+                        '#ff0000'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    }
+
+    document.getElementById('botao_verGrafico').addEventListener('click', () => {
+        criarGraficoPizza();
+    });
 </script>
+
+
+// function reiniciarQuiz() {
+    //     perguntaAtual = 0;
+    //     pontuacao = 0;
+    //     quizComecou = false;
+    
+    //     let tentativas = parseInt(document.getElementById('tentativas').textContent);
+    //     tentativas++;
+    //     document.getElementById('tentativas').innerHTML = tentativas; 
+    
+    //     document.getElementById("telaInicial").style.display = "block";
+    //     document.getElementById("verGrafico").style.display = "none";
+    
+    
+    // }
+
+    //     document.getElementById('refazerQuiz').addEventListener('click', () => {
+        //     reiniciarQuiz();
+        // });

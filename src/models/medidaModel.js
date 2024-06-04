@@ -29,7 +29,32 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+function verqtdTentaivas (){
+
+var instrucaoSql = `SELECT COUNT(idQuiz) FROM quiz;`;
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
+    function registrarPontos(id, idPontuacao) {
+        console.log("ACESSEI O MEDIDA MODEL para registrar os pontos do NeyQuiz", id, idPontuacao);
+    
+        var instrucao = `   
+        INSERT INTO quiz (fkUsuario, fkPontuacao, dataRealizado) 
+VALUES ('${id}','${idPontuacao}', NOW());
+        `;
+    
+        console.log("Executando a instrução SQL: \n" + instrucao);
+        return database.executar(instrucao);
+    }
+
+
+
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    verqtdTentaivas,
+    registrarPontos
 }

@@ -5,7 +5,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #000729;
+    background-color: #ff0000;
 
 }
 
@@ -132,6 +132,7 @@ input{
     font-family: "Krona One", sans-serif;
     color: #fff;
     display: flex;
+    cursor: pointer;
     font-size: 15px;
     background-color: #ffc400;
     justify-content: center;

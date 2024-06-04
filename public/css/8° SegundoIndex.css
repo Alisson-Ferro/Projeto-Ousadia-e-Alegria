@@ -485,7 +485,7 @@ main {
     top: -30px;
     background: linear-gradient(90deg, #ffcc24, #46ff2a,  #00a0c8);
     display: flex;
-    color: #fff;
+    color: #000729;
     flex-direction: column;
     position: relative;
     z-index: 11;

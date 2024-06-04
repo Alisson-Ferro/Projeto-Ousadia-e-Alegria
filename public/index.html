@@ -175,6 +175,7 @@
                     <div class="relatoContato">
                         <textarea id="Textarea_relato" required placeholder="Relato" maxlength="600"></textarea>
                     </div>
+                    <div id="exibir"></div>
                     <div class="buttonContatoNey">
                         <button onclick="cadastrar()">Mande para nós</button>
                     </div>
@@ -253,11 +254,11 @@
         if (nomeVar == '' || emailVar == '' || mensagemVar == '') {
 
             
-            alert(`Preencha todos os campos!`)
+            exibir.innerHTML=`Preencha todos os campos!`
 
             return false;
         } else if(arrobaVar <0 || pontoVar <0){
-          alert(`Insira um email válido!`)
+            exibir.innerHTML=`Insira um email válido!`
             return false
         }
 

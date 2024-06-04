@@ -21,7 +21,7 @@
     font-size: 30px;
 }
 
-.neyQuiz img{
+.neyQuiz img {
     width: 100%;
     height: 100%;
 }
@@ -386,7 +386,7 @@ li {
 
 .neymarApontando {
     position: relative;
-    top: -75px;
+    top: -40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -412,7 +412,7 @@ li {
     height: 100%;
 }
 
-.info_kpi{
+.info_kpi {
     font-size: 35px;
 }
 
@@ -570,7 +570,7 @@ li {
     height: 64vh;
 }
 
-.all{
+.all {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -579,7 +579,8 @@ li {
     height: 95%;
 
 }
-.left{
+
+.left {
     flex-direction: column;
     display: flex;
     justify-content: flex-start;
@@ -590,14 +591,34 @@ li {
     height: 100%;
 }
 
+.grafico {
+    position: absolute;
+    flex-direction: column;
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    width: 62vw;
+    height: 61vh;
+}
 
 
-.header-Card{
+.grafico p{
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    font-size: 15px;
+    justify-content: center;
+}
+
+
+.header-Card {
     border-radius: 5px;
     font-weight: lighter;
     font-size: 13px;
     font-family: "Krona One", sans-serif;
-    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.456);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.456);
     display: flex;
     background-color: #fff;
     justify-content: center;
@@ -606,7 +627,7 @@ li {
     height: 25%;
 }
 
-.content-Card{
+.content-Card {
     font-weight: lighter;
     font-family: "Krona One", sans-serif;
     display: flex;
@@ -617,8 +638,8 @@ li {
     height: 75%;
 }
 
-.boxQuestions{    
-    box-shadow:0px 2px 2px rgba(0, 0, 0, 0.456);
+.boxQuestions {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.456);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -638,7 +659,8 @@ li {
     height: 45%;
     background-color: #ffffff;
 }
-.UP{
+
+.UP {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -646,7 +668,7 @@ li {
     height: 80%;
 }
 
-.Down{
+.Down {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -654,7 +676,10 @@ li {
     height: 80%;
 }
 
-.btnBoxA, .btnBoxB, .btnBoxC, .btnBoxD{
+.btnBoxA,
+.btnBoxB,
+.btnBoxC,
+.btnBoxD {
     position: relative;
     cursor: pointer;
     padding: 5px;
@@ -664,57 +689,57 @@ li {
     font-size: 25px;
     justify-content: flex-start;
     align-items: center;
-    box-shadow:0px 2px 2px rgba(0, 0, 0, 0.456);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.456);
     border: none;
     border-radius: 5px;
     width: 49.5%;
     height: 95%;
 }
 
-.btnBoxA{
+.btnBoxA {
     background-color: #32fc00
 }
 
-.btnBoxA svg{
+.btnBoxA svg {
     width: 90px;
     height: 90%;
 }
 
-.btnBoxB{
+.btnBoxB {
     background-color: #1f00b7;
 }
 
-.btnBoxB svg{
+.btnBoxB svg {
     width: 90px;
     height: 90%;
 }
 
-.btnBoxC{
+.btnBoxC {
     background-color: #00ebfc;
 }
 
-.btnBoxC svg{
+.btnBoxC svg {
     width: 80px;
     height: 80%;
 }
 
-.btnBoxD{
+.btnBoxD {
     background-color: #fc0000;
 }
 
 
-.btnBoxD svg{
+.btnBoxD svg {
     width: 80px;
     height: 80%;
 }
 
-.right{
+.right {
     border-radius: 5px;
     width: 34%;
     height: 100%;
 }
 
-.boxImgReacaoNey{
+.boxImgReacaoNey {
     justify-content: center;
     display: flex;
     border-radius: 5px;
@@ -724,7 +749,7 @@ li {
     height: 100%;
 }
 
-#reacaoNey{
+#reacaoNey {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -732,7 +757,7 @@ li {
     height: 100%;
 }
 
-#reacaoNey img{
+#reacaoNey img {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -741,7 +766,7 @@ li {
 }
 
 
-.perguntasLeft{
+.perguntasLeft {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -752,13 +777,13 @@ li {
     font-size: 15px;
 }
 
-  
-  .corpo_perguntas {
+
+.corpo_perguntas {
     display: flex;
-  
-  }
-  
-  #perguntas {
+
+}
+
+#perguntas {
     display: flex;
     width: 100vw;
     height: 30vh;
@@ -766,14 +791,15 @@ li {
     padding: 5px;
     align-items: center;
     justify-content: center;
-    
-  
-  }
-  #div_perguntas{
+
+
+}
+
+#div_perguntas {
     font-weight: 700;
-  }
-  
-  .foto_perguntas {
+}
+
+.foto_perguntas {
     margin-top: 2vw;
     margin-left: 3vw;
     width: 33vw;
@@ -783,18 +809,18 @@ li {
     display: flex;
     align-items: center;
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
-  }
-  
-  #conjunto {
+}
+
+#conjunto {
     display: flex;
     flex-direction: column;
     margin-top: 2vw;
     width: 33vw;
     height: 65vh;
-  
-  }
-  
-  #respostas {
+
+}
+
+#respostas {
     display: none;
     justify-content: center;
     gap: 8.6vw;
@@ -802,19 +828,19 @@ li {
     width: 45vw;
     height: 31vh;
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  li{
+}
+
+
+li {
     font-weight: 400;
-  }
-  
-  
-  button:nth-child(1) {
+}
+
+
+button:nth-child(1) {
     filter: hue-rotate(0deg);
-  }
-  
-  #comecarQuiz {
+}
+
+#comecarQuiz {
     border: none;
     font-family: "Krona One", sans-serif;
     padding: 10px;
@@ -825,15 +851,15 @@ li {
     margin-top: 40px;
     font-size: 20px;
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
-  
-  }
-  
-  #comecarQuiz:hover {
+
+}
+
+#comecarQuiz:hover {
     background-color: #ffd54c;
-  }
-  
-  
-  .modal-content {
+}
+
+
+.modal-content {
     display: flex;
     background-color: #F3F3F3;
     margin: 5% auto 15% auto;
@@ -845,9 +871,9 @@ li {
     align-items: center;
     justify-content: center;
     gap: 5vw;
-  }
-  
-  .modal_encerrado {
+}
+
+.modal_encerrado {
     display: none;
     position: fixed;
     z-index: 1;
@@ -861,23 +887,56 @@ li {
     text-align: center;
     align-items: center;
     justify-content: center;
-  }
-  
-  
-  .botoes_encerrado {
+}
+
+
+.botoes_encerrado {
     border: none;
-    padding: 10px;
     font-family: "Krona One", sans-serif;
+    padding: 10px;
     background-color: #ffc400;
     color: #f9f9f9;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 40px;
     font-size: 20px;
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
-    width: 15vw;
-    
-  }
-  .sair{
+
+}
+
+.botoes_refazer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: none;
+    font-family: "Krona One", sans-serif;
+    padding: 10px;
+    background-color: #ffc400;
+    color: #f9f9f9;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 40px;
+    font-size: 20px;
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.sair {
     margin-top: 20vh;
     margin-left: 7vw;
-  }
+}
+
+#acertos{
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    font-size: 15px;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+#erros{
+    display: flex;
+    font-family: "Krona One", sans-serif;
+    font-size: 15px;
+    justify-content: center;
+    margin-left: 5px;
+}

@@ -24,8 +24,8 @@
                 <div class="BoxLoginLogo">
                     <img src="./assets/img/Imagem do WhatsApp de 2024-05-18 à(s) 00.47.10_68d60645.png" alt="">
                 </div>
-                <!-- <form method=""> -->
                 <div class="BoxLoginInputEmail">
+                    <div id="exibir"></div>
                     <label>
                         <input placeholder="EMAIL" id="input_email" required>
                     </label>
@@ -46,7 +46,6 @@
                     <a href="./index.html"><img src="./assets/img/botao-de-inicio (1) 1.png" alt=""></a>
                 </div>
             </div>
-        <!-- </form> -->
             <div class="LoginNey">
                 <img src="./assets/img/Ney🥱-Photoroom (1).png" alt="">
             </div>
@@ -72,7 +71,7 @@
 
     if (emailVar == "" || senhaVar == "") {
         
-        alert("Preencha todos os campos!");
+       exibir.innerHTML="Preencha todos os campos!"
         return false;
     }
 
@@ -109,7 +108,7 @@
             });
 
         } else {
-                alert('Email e/ou senha inválidos!')
+            exibir.innerHTML='Email e/ou senha inválidos!'
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {
