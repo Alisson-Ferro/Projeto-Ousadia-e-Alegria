@@ -8,7 +8,7 @@ router.get("/", function (req, res) {
     res.render("index");
 });
 
-router.get("/verqtdTentaivas/:id", function (req, res) {
+router.post("/verqtdTentaivas", function (req, res) { // Sem o ':id'
     quizController.verqtdTentaivas(req, res);
 });
 

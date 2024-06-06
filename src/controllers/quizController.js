@@ -1,17 +1,20 @@
 var quizModel = require("../models/quizModel");
 
-function verqtdTentaivas(idQuiz) {
-    var idQuiz = req.params.idQuiz;
+function verqtdTentaivas(req, res) {
+    var idUsuario = req.body.idUsuarioServer; // Pega o id do usuário do corpo da requisição
 
     console.log(`Recuperando medidas em tempo real`);
 
-    quizModel.verqtdTentaivas(idQuiz).then(function () {
-        res.status(200).send("");
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+    quizModel.verqtdTentaivas(idUsuario) // Passa o id do usuário para o model
+        .then(contagem => {
+            let tentativas = contagem[0].tentativas
+            res.status(200).json(tentativas); // Envia a contagem como JSON
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
 function registrarPontos(req, res) {

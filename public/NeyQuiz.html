@@ -109,7 +109,7 @@
                             <h2>Tentativas</h2>
                         </div>
                         <div class="content-Card">
-                            <h1 id="tentativas">0</h1>
+                            <h1 id="tentativas"></h1>
                         </div>
                     </div>
                 </div>
@@ -258,11 +258,11 @@
 
     dropbtn.addEventListener('click', () => {
         if (rotation === 0) {
-            rotation = 180; 
-            dropdown.classList.add('open'); 
+            rotation = 180;
+            dropdown.classList.add('open');
         } else {
-            rotation = 0; 
-            dropdown.classList.remove('open'); 
+            rotation = 0;
+            dropdown.classList.remove('open');
         }
         gear.style.transform = `rotate(${rotation}deg)`;
     });
@@ -425,11 +425,33 @@
         document.getElementById("verGrafico").style.display = "none";
         document.getElementById("telaInicial").style.display = "block";
 
-        
         location.reload();
+console.log(`CHEGUEI`)
+        const idUsuario = sessionStorage.ID_USUARIO
+
+        fetch(`/quiz/verqtdTentaivas`, {
+    method: "POST",
+    headers: {
+        'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify({
+        idUsuarioServer: idUsuario
+    })
+})
+.then(resposta => {
+    if (resposta.ok) {
+        return resposta.json(); // Converta a resposta para JSON
+    } else {
+        throw new Error('Erro na requisição');
     }
-
-
+})
+.then(dados => {
+    document.getElementById('tentativas').innerHTML = dados.tentativas; // Acesse o número de tentativas no JSON
+})
+.catch(erro => {
+    console.log(`#ERRO: ${erro}`);
+});
+    }
 
 
     function carregarQuiz() {
@@ -467,7 +489,7 @@
         }
     }
 
-    
+
 
     function enviarResposta(respostaSelecionada) {
         seconds = INITIAL_SECONDS;
@@ -505,6 +527,8 @@
 
     }
 
+
+
     document.getElementById('comecarQuiz').addEventListener('click', () => {
         document.getElementById('telaInicial').style.display = 'none';
         document.querySelector('.graficos-Quiz').style.display = 'flex';
@@ -520,7 +544,7 @@
     }
 
     async function criarGraficoPizza() {
-        
+
         console.log(pontuacao)
         // Faz uma requisição POST assíncrona para a URL '/medidas/guardarPontuacao'
         const response = await fetch('/quiz/registrarPontos', {
@@ -600,6 +624,10 @@
 
     }
 
+    document.getElementById('comecarQuiz').addEventListener('click', () => {
+
+    });
+
     //Gráfico de Pizza
     // function criarGraficoPizza() {
     //     const ctx = document.getElementById('myChart').getContext('2d');
@@ -638,21 +666,21 @@
 </script>
 
 
-// function reiniciarQuiz() {
-    //     perguntaAtual = 0;
-    //     pontuacao = 0;
-    //     quizComecou = false;
-    
-    //     let tentativas = parseInt(document.getElementById('tentativas').textContent);
-    //     tentativas++;
-    //     document.getElementById('tentativas').innerHTML = tentativas; 
-    
-    //     document.getElementById("telaInicial").style.display = "block";
-    //     document.getElementById("verGrafico").style.display = "none";
-    
-    
-    // }
+<!-- // function reiniciarQuiz() {
+// perguntaAtual = 0;
+// pontuacao = 0;
+// quizComecou = false;
 
-    //     document.getElementById('refazerQuiz').addEventListener('click', () => {
-        //     reiniciarQuiz();
-        // });
+// let tentativas = parseInt(document.getElementById('tentativas').textContent);
+// tentativas++;
+// document.getElementById('tentativas').innerHTML = tentativas;
+
+// document.getElementById("telaInicial").style.display = "block";
+// document.getElementById("verGrafico").style.display = "none";
+
+
+// }
+
+// document.getElementById('refazerQuiz').addEventListener('click', () => {
+// reiniciarQuiz();
+// }); -->

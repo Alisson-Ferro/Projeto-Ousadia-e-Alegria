@@ -1,12 +1,18 @@
 var database = require("../database/config");
 
-function verqtdTentaivas(idQuiz) {
-
-    var instrucaoSql = `SELECT COUNT(${idQuiz}) FROM quiz;`;
+function verqtdTentaivas(idUsuario) {
+    console.log("ACESSEI O MEDIDA MODEL do NeyQuiz");
+    var instrucaoSql = `SELECT COUNT(idQuiz) as 'tentativas' FROM quiz WHERE fkUsuario = ${idUsuario};`; 
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-
+    return database.executar(instrucaoSql)
+    // .then(resultado => {
+    //     if (resultado.length > 0) { 
+    //         return resultado[0]['COUNT(idQuiz)'];
+    //     } else {
+    //         return 0;
+    //     }
+    // });
 }
 function registrarPontos(qtdPontos) {
     console.log("ACESSEI O MEDIDA MODEL para registrar os pontos do NeyQuiz", qtdPontos);
